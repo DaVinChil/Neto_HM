@@ -23,12 +23,12 @@ public class MessageSenderTest {
 
     @BeforeAll
     public static void beforeAll(){
-        System.out.println("Running tests");
+        System.out.println("Running MessageSenderImpl tests");
     }
 
     @AfterAll
     public static void afterAll(){
-        System.out.println("Finished tests");
+        System.out.println("Finished MessageSenderImpl tests");
     }
 
     @BeforeEach
@@ -79,46 +79,5 @@ public class MessageSenderTest {
         String actual = messageSender.send(headers);
 
         Assertions.assertEquals(expected, actual);
-    }
-
-    @ParameterizedTest
-    @MethodSource("locationByIpSource")
-    public void locationByIp(String ip, Location expected){
-        GeoServiceImpl geoService = new GeoServiceImpl();
-
-        Location actual = geoService.byIp(ip);
-        if(expected != null && actual != null) {
-            Assertions.assertEquals(expected.getCountry(), actual.getCountry());
-            Assertions.assertEquals(expected.getBuiling(), actual.getBuiling());
-            Assertions.assertEquals(expected.getStreet(), actual.getStreet());
-            Assertions.assertEquals(expected.getCity(), actual.getCity());
-        } else {
-            Assertions.assertEquals(expected, actual);
-        }
-    }
-
-    public static Stream<Arguments> locationByIpSource(){
-        return Stream.of(Arguments.of("172.1.54.33", new Location("Moscow", Country.RUSSIA, null, 0)),
-                Arguments.of("s15142", null),
-                Arguments.of("96.22.333.444", new Location("New York", Country.USA, null , 0)),
-                Arguments.of(GeoServiceImpl.MOSCOW_IP, new Location("Moscow", Country.RUSSIA, "Lenina", 15)),
-                Arguments.of(GeoServiceImpl.LOCALHOST, new Location(null, null, null, 0)));
-
-    }
-
-    @ParameterizedTest
-    @MethodSource("localeSource")
-    public void locale(Country country, String expected){
-        LocalizationServiceImpl lcl = new LocalizationServiceImpl();
-
-        String actual = lcl.locale(country);
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    public static Stream<Arguments> localeSource(){
-        return Stream.of(Arguments.of(Country.USA, "Welcome"),
-                Arguments.of(Country.BRAZIL, "Welcome"),
-                Arguments.of(Country.RUSSIA, "Добро пожаловать"));
     }
 }
