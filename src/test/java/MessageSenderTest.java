@@ -1,10 +1,10 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
+import org.mockito.internal.matchers.Matches;
 import ru.netology.entity.Country;
 import ru.netology.entity.Location;
 import ru.netology.geo.GeoService;
@@ -19,7 +19,27 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class MessageSenderTest {
-    MessageSender messageSender;
+    public MessageSender messageSender;
+
+    @BeforeAll
+    public static void beforeAll(){
+        System.out.println("Running tests");
+    }
+
+    @AfterAll
+    public static void afterAll(){
+        System.out.println("Finished tests");
+    }
+
+    @BeforeEach
+    public void beforeEach(){
+        System.out.println("Before test");
+    }
+
+    @AfterEach
+    public void afterEach(){
+        System.out.println("After test");
+    }
 
     @Test
     public void russianTest() {
