@@ -36,7 +36,6 @@ public class MessageSenderTest {
         System.out.println("Before test");
     }
 
-    
     @AfterEach
     public void afterEach(){
         System.out.println("After test");
