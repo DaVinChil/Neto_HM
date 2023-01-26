@@ -12,14 +12,15 @@ import java.net.URL;
 
 public class IsNasaAlive {
     public static void main(String[] args) {
+
         NasaRespond nasaResp = null;
-        try(CloseableHttpClient httpClient = HttpClients.createDefault()){
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpGet request = new HttpGet("https://api.nasa.gov/planetary/apod?api_key=GGNxyhFejN6kxWlfHTVT8pydzNydL5De0haFGQwG");
             CloseableHttpResponse response = httpClient.execute(request);
             String jsonResponse = new String(response.getEntity().getContent().readAllBytes(), Charsets.UTF_8);
             ObjectMapper objectMapper = new ObjectMapper();
             nasaResp = objectMapper.readValue(jsonResponse, NasaRespond.class);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
@@ -33,7 +34,7 @@ public class IsNasaAlive {
         }
 
         File file = new File("nasa" + extension);
-        if(file.canRead()){
+        if (file.canRead()) {
             System.out.println("File can be opened");
         } else {
             System.out.println("File can not be opened");

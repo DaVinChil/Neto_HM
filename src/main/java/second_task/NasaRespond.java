@@ -10,7 +10,7 @@ public class NasaRespond {
     private String date;
     private String explanation;
     private String hdurl;
-    private String media_type;
+    private String mediaType;
     private String serviceVersion;
     private String title;
     private String url;
