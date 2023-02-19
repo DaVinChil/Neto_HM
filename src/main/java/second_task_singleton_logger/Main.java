@@ -14,7 +14,7 @@ public class Main {
         logger.log("Starting program");
         logger.log("Asking the user to enter the input data for the list");
 
-        System.out.print("Entet size of list: ");
+        System.out.print("Enter size of list: ");
         int size = in.nextInt();
 
         System.out.print("Enter limit for list's elements: ");
