@@ -1,3 +1,5 @@
+package firs_task_person_builder;
+
 public class PersonBuilder {
     private String name;
     private Integer age;

@@ -1,3 +1,5 @@
+package firs_task_person_builder;
+
 import java.util.Objects;
 
 public class Person {

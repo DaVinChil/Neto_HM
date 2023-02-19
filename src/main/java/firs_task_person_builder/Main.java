@@ -1,3 +1,5 @@
+package firs_task_person_builder;
+
 public class Main {
     public static void main(String[] args) {
         Person mom = new PersonBuilder()
