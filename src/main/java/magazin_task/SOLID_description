@@ -1,9 +1,0 @@
-SoLID:
-Single-responsibility principle -
-    Разделение на ShoppingCart и Store.
-Liskov substitution principle -
-    В ShoppingCart есть метод track но он не должен реализововать интерфейс Trackable
-Interface segregation principle -
-    Разделение Trackable и Refundable.
-Dependency inversion principle -
-    Реализация Product интерфейсов Trackable и Refundable, что позваляет не завист от конретных реализаций а от абстракции.
